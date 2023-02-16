@@ -53,82 +53,92 @@
       <h5 class="text-center mb-5 text-primary">
         Aplikasi Penghitung Redaman ⚖️
       </h5>
-      <form autocomplete="off">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label"
-            >Splitter</label
-          >
-          <select required id="splitter" class="form-select form-select-sm">
-            <option value="">--Pilih Splitter--</option>
-            <option value="3.7">1 : 2</option>
-            <option value="7.25">1 : 4</option>
-            <option value="10.38">1 : 8</option>
-            <option value="14.10">1 : 16</option>
-            <option value="17.45">1 : 32</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="jarak" class="form-label form-label-sm">Jarak</label>
-          <input
-            required
-            id="jarak"
-            type="text"
-            name="jarak"
-            placeholder="Input jarak..."
-            class="form-control form-control-sm"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="konektor" class="form-label">Jumlah Konektor</label>
-          <input
-            required
-            type="text"
-            id="konektor"
-            name="konektor"
-            placeholder="Input jumlah konektor..."
-            class="form-control form-control-sm"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="sambungan" class="form-label">Jumlah Sambungan</label>
-          <input
-            required
-            type="text"
-            id="sambungan"
-            name="sambungan"
-            placeholder="Input jumlah sambungan..."
-            class="form-control form-control-sm"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="adaptor" class="form-label">Jumlah Adaptor</label>
-          <input
-            required
-            type="text"
-            id="adaptor"
-            name="adaptor"
-            placeholder="Input jumlah adaptor..."
-            class="form-control form-control-sm"
-          />
-        </div>
-        <div class="mt-4">
-          <div class="d-grid gap-2 d-md-block">
-            <button
-              class="btn btn-primary btn-block btn-sm"
-              id="print"
-              type="submit"
-            >
-              Print
-            </button>
-            <button class="btn btn-secondary btn-sm" id="print" type="reset">
-              Reset
-            </button>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <form autocomplete="off">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Splitter</label
+              >
+              <select required id="splitter" class="form-select form-select-sm">
+                <option value="">--Pilih Splitter--</option>
+                <option value="3.7">1 : 2</option>
+                <option value="7.25">1 : 4</option>
+                <option value="10.38">1 : 8</option>
+                <option value="14.10">1 : 16</option>
+                <option value="17.45">1 : 32</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="jarak" class="form-label form-label-sm">Jarak</label>
+              <input
+                required
+                id="jarak"
+                type="text"
+                name="jarak"
+                placeholder="Input jarak..."
+                class="form-control form-control-sm"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="konektor" class="form-label">Jumlah Konektor</label>
+              <input
+                required
+                type="text"
+                id="konektor"
+                name="konektor"
+                placeholder="Input jumlah konektor..."
+                class="form-control form-control-sm"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="sambungan" class="form-label">Jumlah Sambungan</label>
+              <input
+                required
+                type="text"
+                id="sambungan"
+                name="sambungan"
+                placeholder="Input jumlah sambungan..."
+                class="form-control form-control-sm"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="adaptor" class="form-label">Jumlah Adaptor</label>
+              <input
+                required
+                type="text"
+                id="adaptor"
+                name="adaptor"
+                placeholder="Input jumlah adaptor..."
+                class="form-control form-control-sm"
+              />
+            </div>
+            <div class="mt-4">
+              <div class="d-grid gap-2 d-md-block">
+                <button
+                  class="btn btn-primary btn-block btn-sm"
+                  id="print"
+                  type="submit"
+                >
+                  Print
+                </button>
+                <button
+                  class="btn btn-secondary btn-sm"
+                  id="print"
+                  type="reset"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="mt-4">
+            Hasil:
+            <div class="alert alert-warning mt-2" role="alert" id="hasil">
+              0
+            </div>
           </div>
         </div>
-      </form>
-      <div class="mt-4">
-        Hasil:
-        <div class="alert alert-warning mt-2" role="alert" id="hasil">0</div>
       </div>
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
