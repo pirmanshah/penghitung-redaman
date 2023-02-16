@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Primary Meta Tags -->
+    <title>Aplikasi Penghitung Redaman</title>
+    <meta name="title" content="Aplikasi Penghitung Redaman" />
+    <meta
+      name="description"
+      content="Aplikasi sederhana untuk menghitung redaman, dibuat dengan JavaScript dan HTML."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://penghitung-redaman.netlify.app" />
+    <meta property="og:title" content="Aplikasi Penghitung Redaman" />
+    <meta
+      property="og:description"
+      content="Aplikasi sederhana untuk menghitung redaman, dibuat dengan JavaScript dan HTML."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://penghitung-redaman.netlify.app"
+    />
+    <meta property="twitter:title" content="Aplikasi Penghitung Redaman" />
+    <meta
+      property="twitter:description"
+      content="Aplikasi sederhana untuk menghitung redaman, dibuat dengan JavaScript dan HTML."
+    />
+    <meta
+      property="twitter:image"
+      content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    />
+  </head>
+  <body>
+    <div class="container-fluid p-4">
+      <h5 class="text-center mb-5 text-primary">
+        Aplikasi Penghitung Redaman ⚖️
+      </h5>
+      <form autocomplete="off">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Splitter</label
+          >
+          <select required id="splitter" class="form-select form-select-sm">
+            <option value="">--Pilih Splitter--</option>
+            <option value="3.7">1 : 2</option>
+            <option value="7.25">1 : 4</option>
+            <option value="10.38">1 : 8</option>
+            <option value="14.10">1 : 16</option>
+            <option value="17.45">1 : 32</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="jarak" class="form-label form-label-sm">Jarak</label>
+          <input
+            required
+            id="jarak"
+            type="text"
+            name="jarak"
+            placeholder="Input jarak..."
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="konektor" class="form-label">Jumlah Konektor</label>
+          <input
+            required
+            type="text"
+            id="konektor"
+            name="konektor"
+            placeholder="Input jumlah konektor..."
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="sambungan" class="form-label">Jumlah Sambungan</label>
+          <input
+            required
+            type="text"
+            id="sambungan"
+            name="sambungan"
+            placeholder="Input jumlah sambungan..."
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="adaptor" class="form-label">Jumlah Adaptor</label>
+          <input
+            required
+            type="text"
+            id="adaptor"
+            name="adaptor"
+            placeholder="Input jumlah adaptor..."
+            class="form-control form-control-sm"
+          />
+        </div>
+        <div class="mt-4">
+          <div class="d-grid gap-2 d-md-block">
+            <button
+              class="btn btn-primary btn-block btn-sm"
+              id="print"
+              type="submit"
+            >
+              Print
+            </button>
+            <button class="btn btn-secondary btn-sm" id="print" type="reset">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="mt-4">
+        Hasil:
+        <div class="alert alert-warning mt-2" role="alert" id="hasil">0</div>
+      </div>
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const splitter = document.getElementById("splitter");
+      const jarak = document.getElementById("jarak");
+      const konektor = document.getElementById("konektor");
+      const sambungan = document.getElementById("sambungan");
+      const adaptor = document.getElementById("adaptor");
+
+      document.getElementById("print").addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (
+          jarak.value === "" ||
+          konektor.value === "" ||
+          sambungan.value === "" ||
+          adaptor.value == "" ||
+          splitter.value === ""
+        ) {
+          return alert("Mohon isi semua inputan ❌");
+        }
+
+        const calculate =
+          parseFloat(jarak.value) * 0.35 +
+          parseFloat(konektor.value) * 0.2 +
+          parseFloat(sambungan.value) * 0.1 +
+          parseFloat(adaptor.value) * 0.25 +
+          parseFloat(splitter.value);
+
+        document.getElementById("hasil").innerHTML = calculate;
+      });
+    </script>
+  </body>
+</html>
