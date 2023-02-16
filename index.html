@@ -69,16 +69,10 @@
                 <option value="17.45">1 : 32</option>
               </select>
             </div>
-            <div class="mb-3">
-              <label for="jarak" class="form-label form-label-sm">Jarak</label>
-              <input
-                required
-                id="jarak"
-                type="text"
-                name="jarak"
-                placeholder="Input jarak..."
-                class="form-control form-control-sm"
-              />
+            <label for="jarak" class="form-label form-label-sm">Jarak</label>
+            <div class="input-group input-group-sm mb-3">
+              <input type="text" placeholder="Input jarak..." id="jarak" class="form-control form-control-sm">
+              <span class="input-group-text">km</span>
             </div>
             <div class="mb-3">
               <label for="konektor" class="form-label">Jumlah Konektor</label>
@@ -164,6 +158,8 @@
       document.getElementById("print").addEventListener("click", (event) => {
         event.preventDefault();
 
+        console.log(jarak.value)
+
         if (
           jarak.value === "" ||
           konektor.value === "" ||
@@ -175,10 +171,10 @@
         }
 
         const calculate =
-          parseFloat(jarak.value) * 0.35 +
-          parseFloat(konektor.value) * 0.2 +
-          parseFloat(sambungan.value) * 0.1 +
-          parseFloat(adaptor.value) * 0.25 +
+          (parseFloat(jarak.value) * 0.35) +
+          (parseFloat(konektor.value) * 0.2) +
+          (parseFloat(sambungan.value) * 0.1) +
+          (parseFloat(adaptor.value) * 0.25) +
           parseFloat(splitter.value);
 
         document.getElementById("hasil").innerHTML = calculate;
